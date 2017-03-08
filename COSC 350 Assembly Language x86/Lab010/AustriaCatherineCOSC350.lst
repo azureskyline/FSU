@@ -1,0 +1,111 @@
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    02/24/17 14:46:34
+AustriaCatherine_L010.asm				     Page 1 - 1
+
+
+				;//AustriaCatherine_L010.asm - declarations of data types and arrays
+				;//L010 Wed Feb 22, 2017
+
+				.386
+				.model flat,stdcall
+				.stack 4096
+				ExitProcess proto, dwExitCode:dword
+
+				;// Four symbolic constants
+ = 00000014				consthex = 14h
+ = 00000014				constdeci = 20d
+ = 00000014				constoctal = 24o
+ = 00000014				constbin = 10100b
+
+				;// A bunch of data
+ 00000000			.data
+					;//indents make Steve happy
+ 00000000 02				val_byte BYTE 2
+ 00000001 F4				val_sbyte SBYTE -12
+ 00000002 3039				val_word WORD 12345
+ 00000004 CFC7				val_sword SWORD -12345
+ 00000006 12345678			val_dword DWORD 12345678h
+ 0000000A FF439EB2			val_sdword SDWORD -12345678
+ 0000000E C0066666			val_real4 REAL4 -2.1
+
+				;// Arrays
+ 00000012  0000003C [			val_arr DWORD 60 DUP(?)
+	    00000000
+	   ]
+ 00000102  0000003C [			val_arr2 DWORD 60 DUP(0abcdh)
+	    0000ABCD
+	   ]
+
+ 00000000			.code
+ 00000000			main proc
+ 00000000  B8 00000014			mov	eax,consthex
+ 00000005  BB 00000014			mov ebx,constdeci
+ 0000000A  B9 00000014			mov ecx,constoctal
+ 0000000F  BA 00000014			mov edx,constbin
+ 00000014  8A 1D 00000000 R		mov bl, val_byte  
+ 0000001A  8A 3D 00000001 R		mov bh, val_sbyte
+ 00000020  66| 8B 0D			mov cx, val_word
+	   00000002 R
+ 00000027  66| A1			mov ax, val_sword
+	   00000004 R
+ 0000002D  8B 1D 00000006 R		mov ebx, val_dword
+ 00000033  8B 15 0000000A R		mov edx, val_sdword
+ 00000039  A1 0000000E R		mov eax, val_real4
+
+					invoke ExitProcess,0
+ 0000003E  6A 00	   *	    push   +000000000h
+ 00000040  E8 00000000 E   *	    call   ExitProcess
+ 00000045			main endp
+				end main
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    02/24/17 14:46:34
+AustriaCatherine_L010.asm				     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 000001F2 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000045 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000045 Public STDCALL
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+constbin . . . . . . . . . . . .	Number	 00000014h   
+constdeci  . . . . . . . . . . .	Number	 00000014h   
+consthex . . . . . . . . . . . .	Number	 00000014h   
+constoctal . . . . . . . . . . .	Number	 00000014h   
+val_arr2 . . . . . . . . . . . .	DWord	 00000102 _DATA	
+val_arr  . . . . . . . . . . . .	DWord	 00000012 _DATA	
+val_byte . . . . . . . . . . . .	Byte	 00000000 _DATA	
+val_dword  . . . . . . . . . . .	DWord	 00000006 _DATA	
+val_real4  . . . . . . . . . . .	DWord	 0000000E _DATA	
+val_sbyte  . . . . . . . . . . .	Byte	 00000001 _DATA	
+val_sdword . . . . . . . . . . .	DWord	 0000000A _DATA	
+val_sword  . . . . . . . . . . .	Word	 00000004 _DATA	
+val_word . . . . . . . . . . . .	Word	 00000002 _DATA	
+
+	   0 Warnings
+	   0 Errors

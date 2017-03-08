@@ -1,0 +1,126 @@
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    03/05/17 21:10:02
+AustriaCatherine_L011.asm				     Page 1 - 1
+
+
+				;//AustriaCatherine_L010.asm - declarations of data types and arrays
+				;//L010 Wed Feb 22, 2017
+
+				.386
+				.model flat, stdcall
+				.stack 4096
+				ExitProcess proto, dwExitCode:dword
+
+				;// A bunch of data needed for the lab
+ 00000000			.data
+					;//indents make Steve happy
+ 00000000 12345678			three DWORD 12345678h								;//used for later manipulation
+
+				;// Arrays
+ 00000004 00010000			intarray DWORD 10000h, 20000h, 30000h, 40000h		;//array to be manipulated in later loops
+	   00020000
+	   00030000
+	   00040000
+ 00000014 00000004			len DWORD LENGTHOF intarray							;//total array length
+ 00000018 00000002			lenhalf DWORD LENGTHOF intarray / 2					;//half of total array length
+
+ 00000000			.code
+ 00000000			main proc
+					;// Part 0
+ 00000000  66| 8B 1D			mov	bx, WORD PTR three				;//lower word
+	   00000000 R
+ 00000007  66| 87 1D			xchg bx, WORD PTR[three + 2]		;//exchange with upper word
+	   00000002 R
+ 0000000E  66| 89 1D			mov WORD PTR three, bx				;//move the previous lower word to upper word spot
+	   00000000 R
+
+					;// Part 1
+ 00000015  B2 FF			mov dl, 0FFh
+ 00000017  FE C2			inc dl
+
+					;//Part 2a - 4.5.4 (copied exactly book implementation)
+ 00000019  BF 00000004 R		mov edi, OFFSET intarray
+ 0000001E  B9 00000004			mov ecx, LENGTHOF intarray
+ 00000023  B8 00000000			mov eax, 0
+ 00000028			L1:
+ 00000028  03 07			add eax, [edi]
+ 0000002A  83 C7 04			add edi, TYPE intarray
+ 0000002D  E2 F9			loop L1
+
+					;//Part 2b
+ 0000002F  BF 00000004 R		mov edi, OFFSET intarray
+ 00000034  BB 00000000			mov ebx, 0								;//think of this as the current array index
+ 00000039  B9 00000004			mov ecx, LENGTHOF intarray
+ 0000003E  B8 00000000			mov eax, 0								;//ready eax to be added to
+ 00000043			L2:
+ 00000043  03 04 9F			add eax, [edi + (TYPE intarray*ebx)]	;//add to eax the value of the offset plus the current index
+ 00000046  43				inc ebx									;//increment the "index" of the array
+ 00000047  E2 FA			loop L2
+
+					;//Part 3 - I think I might actually hate arrays now...
+ 00000049  B8 00000000			mov eax, 0								;//reset these so that no data errors will happen
+ 0000004E  BB 00000000			mov ebx, 0
+ 00000053  B9 00000000			mov ecx, 0
+ 00000058  BA 00000000			mov edx, 0
+ 0000005D  BF 00000004 R		mov edi, OFFSET intarray
+ 00000062  8B 0D 00000018 R		mov ecx, lenhalf						;//set counter half array size
+ 00000068  A1 00000014 R		mov eax, len							;//keeps track of end of array
+ 0000006D  48				dec eax									;//decrement it so we don't get array out of bounds
+ 0000006E			L3:
+ 0000006E  8B 14 9F			mov edx, [edi+(TYPE intarray * ebx)]	;//take value in current array element
+ 00000071  87 14 87			xchg edx, [edi + (TYPE intarray * eax)]	;//swap that value with the end array element
+ 00000074  89 14 9F			mov[edi + (TYPE intarray * ebx)], edx	;//put the end array element in the current array element
+ 00000077  48				dec eax									;//counter for keeping track of the end of the array element
+ 00000078  43				inc ebx									;//counter for the near to beginning part of the array
+ 00000079  E2 F3			loop L3
+					invoke ExitProcess,0
+ 0000007B  6A 00	   *	    push   +000000000h
+ 0000007D  E8 00000000 E   *	    call   ExitProcess
+ 00000082			main endp
+				end main
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    03/05/17 21:10:02
+AustriaCatherine_L011.asm				     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000001C DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000082 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000082 Public STDCALL
+  L1 . . . . . . . . . . . . . .	L Near	 00000028 _TEXT	
+  L2 . . . . . . . . . . . . . .	L Near	 00000043 _TEXT	
+  L3 . . . . . . . . . . . . . .	L Near	 0000006E _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+intarray . . . . . . . . . . . .	DWord	 00000004 _DATA	
+lenhalf  . . . . . . . . . . . .	DWord	 00000018 _DATA	
+len  . . . . . . . . . . . . . .	DWord	 00000014 _DATA	
+three  . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+
+	   0 Warnings
+	   0 Errors
