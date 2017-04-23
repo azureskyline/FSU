@@ -1,0 +1,6 @@
+Word Lists (as provided by your classmates):
+
+http://wordlist.aspell.net/
+https://www.andrew.cmu.edu/course/15-200/s06/applications/labs/lab3/dict
+http://www.mieliestronk.com/wordlist.html
+http://www.mieliestronk.com/corncob_lowercase.txt
