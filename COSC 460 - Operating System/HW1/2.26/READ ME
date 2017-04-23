@@ -1,0 +1,15 @@
+READ ME
+
+Hello! The input file and output file name are to be passed as string arguments when executing the .java file in Terminal. I don't know if you had wanted an extensive instruction to executing / using the program like you usually do even though I know you know this by heart, well here it is anyway:
+
+In Terminal or cmd line:
+
+1. Go to the address of the folder where the .java file is located.
+2. Type, javac ByteCopy.java
+3. After a few miliseconds it compiles...
+4. Type, java ByteCopy [input file here] [output file name here]
+5. See the program in action
+6. The output file defaults to the folder where the .java file is.
+
+Cheers
+
