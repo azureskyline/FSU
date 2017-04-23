@@ -1,0 +1,17 @@
+DFA Results: 
+The input is: aaaaabb is not accepted by M
+
+The input is: aaaaaaaa is not accepted by M
+
+The input is: aaaaaaab is accepted by M
+
+The input is: bbbbbbbbbb is not accepted by M
+
+NFA Results: 
+The input is: aaaaabb is not accepted by M
+
+The input is: aaaaaaaa is not accepted by M
+
+The input is: aaaaaaab is accepted by M
+
+The input is: bbbbbbbbbb is not accepted by M
