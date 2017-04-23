@@ -1,0 +1,72 @@
+public static void TEST(SOMEPARAMETER){
+	
+var NUMTEST, V1, V2, RESULT : int;		//declare int
+	
+var CHAR_TEST, A, B, Q, S: char;		//declare char
+	
+{
+		
+NUMTEST = 1;						//int assignment
+		
+RESULT = NUMTEST;
+		
+RESULT = 1 + 3 + 5 + 7;
+		
+V1 = 1;
+    	
+V2 = 1+1+V1;
+    	
+A = 'A';
+    	
+B = 'B';
+    	
+Q = '?';
+    	
+S = '_';
+		
+CHAR_TEST = 'a';					//char assignment
+		
+		
+if(CHAR_TEST > 'A'){				//if with comparison
+			
+NUMTEST = 2;
+			
+put(S);							//put space
+			
+put(V2);						//last line of compound statement does not have semi-colon
+			
+put(S);							//put space
+			
+if(3 > 2) put(NUMTEST)			//nested if
+		
+};											//semi-colon here because not the end yet
+			
+put(S);									//put space
+			
+put(A); 								//put on terminal 'A'
+    		
+put(Q); 								//put on terminal '?'
+    		
+put(S); 								//put space
+    		
+get(V1); 								//get user input and put to V1
+
+    		
+put(B); 								//put on terminal 'B'
+    		
+put(Q); 								//put on terminal '?'
+    		
+put(S); 								//put space
+    		
+get(V2); 								//get user input and put to V2
+
+    		
+RESULT = V1 + V2;
+
+    		
+put(RESULT) 							//Last line does not have semi-colon
+	
+}
+
+}
+$
