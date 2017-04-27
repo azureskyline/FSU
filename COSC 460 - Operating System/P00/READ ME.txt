@@ -1,7 +1,0 @@
-READ ME.txt
-Hello Steve,
-Please execute jar file using:
-
-java –jar myShell.jar.
-
-I have nothing else to say really. Um, good luck with grading? Yay!?!
