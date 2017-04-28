@@ -26,8 +26,9 @@ You can create the jar file via:
 3. Execute using java –jar DiningPhilosophers.jar
 
 Please execute jar file using:
-
+```
 java –jar myShell.jar.
+```
 
 ##An Example of the Output is:
 ```
