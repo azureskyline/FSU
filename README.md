@@ -6,7 +6,7 @@ The courses included in this repo reflect the codework I've done towards the com
 <dl>
     <dt>Subjects Taken:</dt>
     <dd>CMST 102 - Introduction to Human Communication
-    MATH 236 - Calculus I 
+    <dd>MATH 236 - Calculus I 
     ART 100 - Art Appreciation : [See some of my work.](https://www.redbubble.com/people/azureskyline/works/12360500-code-blooded?p=t-shirt&asc=u "Code Blooded by Azureskyline")
     COSC 240 - Computer Science I : *Did not include code from this class in this repository as it was mostly code completion of a project given by the professor.*</dd>
 </dl>
