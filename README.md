@@ -10,7 +10,7 @@ The courses included in this repo reflect the codework I've done towards the com
     <dd>COSC 240 - Computer Science I : *Did not include code from this class in this repository as it was mostly code completion of a project given by the professor.*</dd>
     <br>
 </dl>
-ART 100 - Art Appreciation : [See some of my work.](https://www.redbubble.com/people/azureskyline/works/12360500-code-blooded?p=t-shirt&asc=u "Code Blooded by Azureskyline")
+ART 100 - Art Appreciation : [See some of my work.](https://www.redbubble.com/people/azureskyline/works/12360500-code-blooded "Code Blooded by Azureskyline")
 
 ### Winter Intercession (December, 2014)
 ⋅⋅* ECON 201 - Principles of Macroeconomics
