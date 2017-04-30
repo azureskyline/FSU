@@ -22,14 +22,14 @@ The courses included in this repo reflect the codework I've done towards the com
     <dd>COSC 241 - Computer Science II : *Again, this class required us to complete code premade by a professor thus I chose not to include.*
     <dd>COSC 325 - Software Engineering : **Worked for a client in this class thus the codework done is private.**
 
-## Summer Intercession 2015
+### Summer Intercession 2015
 <dl>
     <dd>COSC 491 - Seminar in Computer Science : Game Development in Unity
     <dd><dd>SoloGame_Azureskyline : descriptions to come
     <dd><dd>Group Project_Blitzkreig_Azureskyline : descriptions to come
 </dl>
 
-### Fall 2015
+## Fall 2015
 <dl>
     <dd>ENGL 338 - Technical Writing
     <dd>SCIA 120 - Introduction to Secure Computing
@@ -38,7 +38,7 @@ The courses included in this repo reflect the codework I've done towards the com
     <dd>COSC 331 - Fundamentals of Computer Networks
 </dl>
 
-### Spring 2016
+## Spring 2016
 <dl>
     <dd>PSYC 150 - General Psychology 
     <dd>COSC 101 - The Discipline of Computer Science
@@ -52,7 +52,7 @@ The courses included in this repo reflect the codework I've done towards the com
     <dd>PHIL 101 - Introduction to Philosophy 
 </dl>
 
-### Fall 2016
+## Fall 2016
 <dl>
     <dd>MATH 350 - Linear Algebra I
     <dd>HIST 100 - The Contemporary World in History
@@ -68,7 +68,7 @@ The courses included in this repo reflect the codework I've done towards the com
     <dd>GEOG 104 - Human Geography
 </dl>
 
-### Spring 2017
+## Spring 2017
 <dl>
     <dd>MATH 380 - Introduction to Probability and Statistics
     <dd>PHYS 262 - Principles of Physics II: Elective
